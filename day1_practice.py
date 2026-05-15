@@ -4,6 +4,8 @@ expenses = []
 # category = input("Enter the category of your expense: ")
 categories = []
 
+file = open("expenses.txt", "w")
+
 for i in range(3):
     expense = float(input(f"Enter your expense {i+1}: "))
     category = input(f"Enter the category of your expense {i+1}: ")
@@ -45,22 +47,16 @@ def travel_expenses(categories):
             travel += 1
     return travel
 
-# if expense > 1000:
-#     print("Warning: High spending!")
-# else:
-#     print("Spending is under control!")
-
-# if category.lower() == "food":
-#     print("Food expense recorded.")
-# elif category.lower() == "travel":
-#     print("Travel expense recorded.")
-# else:
-#     print("Expense recorded successfully")
+for i in range(len(expenses)):
+    file.write(f"{categories[i]} | {expenses[i]}\n")
+file.close()
 
 print("-----Expense Recorded-----")
 print(f"Name: {name}")
-print(f"Expenses: {expenses}")
-print(f"Categories: {categories}")
+# print(f"Expenses: {expenses}")
+# print(f"Categories: {categories}")
+file = open("expenses.txt", "r")
+print(file.read())
 print(f"You recorded {count_expenses(expenses)} expenses.")
 print(f"Total Expenses: {total_expenses(expenses)}")
 print(f"Highest Expense: {max_expense(expenses)}")

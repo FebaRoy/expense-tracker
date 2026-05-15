@@ -1,0 +1,3 @@
+Food | 60.0
+Travel | 79.0
+Shopping | 800.0
