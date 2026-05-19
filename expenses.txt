@@ -35,4 +35,4 @@ Shopping | 1795.0
 Grocery | 475.0
 Travel | 300.0
 Travel | 20.0
-Travel | 20.0
+Travel | 70.0
