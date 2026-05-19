@@ -23,3 +23,16 @@ Entertainment | 909.5
 Food | 70.0
 Food | 207.0
 Food | 60.0
+Food | 80.0
+Food | 110.0
+Food | 45.0
+Lifestyle | 120.0
+Food | 360.0
+Shopping | 1495.0
+Food | 60.0
+Food | 85.0
+Shopping | 1795.0
+Grocery | 475.0
+Travel | 300.0
+Travel | 20.0
+Travel | 20.0
