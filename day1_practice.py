@@ -1,3 +1,5 @@
+import os
+
 name = input("Enter your name: ")
 expenses = []
 categories = []
@@ -16,18 +18,23 @@ def add_expenses():
     for i in range(n):
         expense = float(input(f"Enter your expense {i+1}: "))
         category = input(f"Enter the category of your expense {i+1}: ")
-        if expense > 1000:
-            print(f"{expense} is a high expense.")
-        with open("expenses.txt", "a") as file:
-            file.write(f"{category} | {expense}\n")
-    update_expenses()
-    print("Expense Recorded!")
+        if expense > 0:
+            if expense > 1000:
+                print(f"{expense} is a high expense.")
+            with open("expenses.txt", "a") as file:
+                file.write(f"{category} | {expense}\n")
+                print("Expense Recorded!")
+        else:
+            print("Expense cannot be 0.")
+    update_expenses() 
 
 def show_expenses():
     with open("expenses.txt", "r") as file:
-        print(file.read())
-    file.close()
-    
+        lines = file.readlines()
+        for line in lines:
+            print(f"Category: {line.split('|')[0].strip()}")
+            print(f"Expense: {line.split('|')[1].strip()}")
+
 def total_expenses(expenses):
     total = 0
     for expense in expenses:
@@ -51,14 +58,23 @@ def category_search(categories):
         if categories[i].lower() == target.lower():
             print(f"{target} | {expenses[i]}")
             total += expenses[i]
-    print(f"Total {target} expenses: {total}")
+    if total == 0:
+        print("No expenses found.")
+    else:
+        print(f"Total {target} expenses: {total}")
 
 def delete_all_expenses():
     with open("expenses.txt","w") as file:
         file.write("")
     print("All your expenses are deleted.")
 
-def menu(expenses, categories):
+def clear_screen():
+    if os.name == "nt":
+        os.system('cls')
+    else:
+        os.system('clear')
+
+def show_menu():
     print("------MENU------")
     print("1. Add Expenses")
     print("2. Show Expenses")
@@ -68,6 +84,10 @@ def menu(expenses, categories):
     print("6. Category Search")
     print("7. Delete All Expenses")
     print("8. Exit")
+    print("9. Clear Screen")
+
+def menu(expenses, categories):
+    show_menu()
     
     option = int(input("Enter your choice: "))
     
@@ -95,9 +115,13 @@ def menu(expenses, categories):
         
     elif option == 8:
         exit()
+
+    elif option == 9:
+        clear_screen()
         
     else:
         print("Invalid choice. Try again.")
+        menu(expenses, categories)
 
 while True:
     update_expenses()
