@@ -15,3 +15,7 @@ Food | 57.0
 Food | 28.0
 Food | 100.0
 Travel | 40.0
+Travel | 30.0
+Travel | 207.25
+Food | 60.0
+Travel | 442.25
