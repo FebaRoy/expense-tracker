@@ -1,15 +1,15 @@
-def total_expenses(expenses):
+def total_expenses(expenditure):
     total = 0
-    for expense in expenses:
+    for expense in expenditure.values():
         total += expense
     return total
 
-def count_expenses(expenses):
-    return len(expenses)
+def count_expenses(expenditure):
+    return len(expenditure)
 
-def max_expense(expenses):
+def max_expense(expenditure):
     highest_expense = 0
-    for expense in expenses:
+    for expense in expenditure.values():
         if expense > highest_expense:
             highest_expense = expense
     return highest_expense
