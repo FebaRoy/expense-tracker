@@ -10,3 +10,6 @@ Grocery | 14.0
 Food | 80.0
 Shopping | 590.0
 Grocery | 14.0
+Food | 40.0
+Grocery | 80.0
+Food | 50.0

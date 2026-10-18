@@ -6,7 +6,7 @@ def update_expenses(expenditure):
             for line in lines:
                 line = line.split('|')
                 expense = float(line[1].strip())
-                category = line[0].strip()
+                category = line[0].title().strip()
                 expenditure[category] = expenditure.get(category, 0) + expense
                 highest_categories = [i for i in expenditure if expenditure[i] > 1000]
             return highest_categories

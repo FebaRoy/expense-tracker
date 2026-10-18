@@ -12,7 +12,10 @@ def add_expenses(expenditure):
                 if expense > 1000:
                     print(f"{expense} is a high expense.")
                 with open("expenses.txt", "a") as file:
-                    file.write(f"{category} | {expense}\n")
+                    if category.strip() == "":
+                        print("Category cannot be empty.")
+                        continue
+                    file.write(f"{category.title().strip()} | {expense}\n")
                     print("Expense Recorded!")
             else:
                 print("Expense must be greater than 0.")
@@ -34,7 +37,7 @@ def category_search(expenditure):
     target = input("Enter the category to search: ")
     total = 0
     for category, expense in expenditure.items():
-        if category.lower() == target.lower():
+        if category == target.title().strip():
             total += expense
     if total == 0:
         print("No expenses found.")
